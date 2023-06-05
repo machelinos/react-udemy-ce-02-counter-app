@@ -5,16 +5,24 @@ exports[`<CounterApp /> tests <CounterApp /> render should match the snapshot 1`
   <h1>
     Counter App
   </h1>
-  <h2>
+  <h2
+    data-testid="count-field"
+  >
     0
   </h2>
-  <button>
+  <button
+    aria-label="add-btn"
+  >
     +1
   </button>
-  <button>
+  <button
+    aria-label="substract-btn"
+  >
     -1
   </button>
-  <button>
+  <button
+    aria-label="reset-btn"
+  >
     Reset
   </button>
 </div>
