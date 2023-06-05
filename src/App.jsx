@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types'
 export const App = ({ title, subtitle }) => {
   return (
     <>
-      <h1>{title}</h1>
+      <h1 data-testid="test-title">{title}</h1>
       <p>{subtitle}</p>
     </>
   )
