@@ -1,25 +1,22 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { App } from '../src/App'
 
 describe('<App /> tests', () => {
-  /*   test('<App /> should amtch the snapshot', () => {
+  const title = 'This is the title'
+  const subtitle = 'This is a subtitle'
+
+  test('<App /> should match the snapshot', () => {
     const { container } = render(<App title="Title!!!" subtitle="Subtitle" />)
     expect(container).toMatchSnapshot()
-  }) */
+  })
 
   test('<App /> should render the title in h1', () => {
-    const title = 'hello world'
-    const { getByTestId } = render(<App title={title} subtitle="Test" />)
-
-    expect(getByTestId('test-title').innerHTML).toContain(title)
+    render(<App title={title} subtitle={subtitle} />)
+    expect(screen.getByRole('heading', { level: 1 }).innerHTML).toContain(title)
   })
 
   test('<App /> should render the subtitle sent in props', () => {
-    const title = 'This is the title'
-    const subtitle = 'This is the subtitle'
-
-    const { getByText } = render(<App title={title} subtitle={subtitle} />)
-
-    expect(getByText(subtitle)).toBeTruthy()
+    render(<App title={title} subtitle={subtitle} />)
+    expect(screen.getByText(subtitle)).toBeTruthy()
   })
 })
